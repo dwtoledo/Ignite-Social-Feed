@@ -1,0 +1,9 @@
+.headerContent {
+  background-color: var(--gray-600);
+  height: 80px;
+}
+
+.headerTitle {
+  font-size: 26px;
+  color: var(--white);
+}
