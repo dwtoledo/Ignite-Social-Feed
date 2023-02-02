@@ -63,6 +63,7 @@
 }
 
 .postCardMessage a:hover {
-  color: var(--dark-green);
+  color: var(--white);
+  background-color: var(--light-green);
 }
 
