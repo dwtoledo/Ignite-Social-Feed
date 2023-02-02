@@ -70,7 +70,7 @@
   margin: 0 auto;
   width: 192px;
   font-weight: 700;
-  transition: all 100ms;
+  transition: background-color 100ms;
 }
 
 .profileCardButton:hover {
