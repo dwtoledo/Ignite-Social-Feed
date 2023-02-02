@@ -8,7 +8,6 @@
 .profileCardHeader {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
 .profileCardCover {
@@ -45,6 +44,10 @@
   border-bottom: var(--gray-500) 1px solid;
   padding: 68px 0px 24px 0px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profileCardFooter {
@@ -66,6 +69,14 @@
   justify-content: center;
   margin: 0 auto;
   width: 192px;
+  font-weight: 700;
+  transition: all 100ms;
+}
+
+.profileCardButton:hover {
+  background-color: var(--light-green);
+  color: var(--white);
+  cursor: pointer;
 }
 
 .profileCardButton > p {

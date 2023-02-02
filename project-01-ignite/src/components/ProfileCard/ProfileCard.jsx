@@ -14,20 +14,20 @@ export function ProfileCard() {
         />
         <img
           className={styles.profileCardPicture}
-          src="https://avatars.githubusercontent.com/u/11148858?v=4"
+          src="https://avatars.githubusercontent.com/u/6643122?v=4"
           alt="Profile Picture"
         />
       </div>
 
       <div className={styles.profileCardInfo}>
-        <p className={styles.profileCardTitle}>Douglas Toledo</p>
-        <p className={styles.profileCardSubtitle}>Frontend Developer</p>
+        <strong className={styles.profileCardTitle}>Mayk Brito</strong>
+        <span className={styles.profileCardSubtitle}>CCO at Rocketseat</span>
       </div>
 
       <div className={styles.profileCardFooter}>
         <button className={styles.profileCardButton}>
           <PencilSimple size={20}/>
-          <p>Editar seu perfil</p>
+          <p>Edit my profile</p>
         </button>
       </div>
 
