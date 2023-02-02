@@ -1,0 +1,68 @@
+.postCard {
+  background-color: var(--gray-600);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 2.5rem;
+  width: 832px;
+}
+
+.postCard > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.postCardAuthor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.postCard > header > time {
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  line-height: 1.6;
+}
+
+.postCardAuthorInfo > strong {
+  display: block;
+  color: var(--gray-100);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.postCardAuthorInfo > span {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  line-height: 1.6;
+}
+
+.postCardPicture {
+  border: var(--light-green) 2px solid;
+  border-radius: 50%;
+  height: 100px;
+  object-fit: cover;
+  width: 100px;
+}
+
+.postCardMessage {
+  color: var(--gray-200);
+  line-height: 1.6;
+  margin-top: 26px;
+}
+
+.postCardMessage a {
+  color: var(--light-green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.postCardMessage a:hover {
+  color: var(--dark-green);
+}
+
