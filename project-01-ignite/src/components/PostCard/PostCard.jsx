@@ -45,6 +45,19 @@ export function PostCard() {
         <a href='https://github.com/search?q=ignite&type=topics' target='_blank'>#ignite</a>{' '}
         <a href='https://github.com/search?q=rocketseat&type=topics' target='_blank'>#rocketseat</a>
       </div>
+
+      <footer className={styles.postCardFooter} >
+        
+        <form className={styles.postCardForm} autocomplete="off">
+          <strong>Leave your feedback</strong>
+          <textarea name="feedback-form" id="feedback-form" placeholder='Write a comment...'></textarea>
+          <div className={styles.postCardButtonWrapper}>
+            <button type="submit">Comment</button>
+          </div>          
+        </form>
+
+      </footer>
+
     </article>
 
   )

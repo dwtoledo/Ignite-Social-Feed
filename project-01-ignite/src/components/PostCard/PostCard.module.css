@@ -63,7 +63,59 @@
 }
 
 .postCardMessage a:hover {
-  color: var(--white);
   background-color: var(--light-green);
+  color: var(--white);
 }
 
+.postCardForm {
+  border-top: 1px solid var(--gray-500);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  width: 100%;
+}
+
+.postCardForm > strong {
+  color: var(--gray-100);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.postCardForm > textarea {
+  background-color: var(--gray-700);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-200);
+  height: 96px;
+  margin-top: 1rem;
+  padding: 13px 16px;
+  resize: none;
+  width: 100%;
+}
+
+.postCardFooter:focus-within .postCardButtonWrapper {
+  visibility: visible;
+  max-height: none;
+}
+
+.postCardButtonWrapper {
+  visibility: hidden;
+  max-height: 0;
+}
+
+.postCardButtonWrapper > button {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--dark-green);
+  border: none;
+  border-radius: 8px;
+  transition: background-color 100ms;
+}
+
+.postCardButtonWrapper > button:hover {
+  background-color: var(--light-green);
+  cursor: pointer;
+}
