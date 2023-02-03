@@ -10,12 +10,12 @@
 
 .headerContent > p {
   color: var(--gray-100);
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 700;
   text-align: center;
 }
 
 .headerContent > img {
   height: auto;
-  width: 64px;
+  width: 4rem;
 }

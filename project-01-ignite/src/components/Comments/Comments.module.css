@@ -5,7 +5,7 @@
 }
 
 .commentWrapper + .commentWrapper {
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 .commentCard {
@@ -20,7 +20,7 @@
   display: flex;
   font-size: 0.875rem;
   font-weight: 700;
-  gap: 10px;
+  gap: 0.625rem;
   justify-content: flex-start;
   margin-top: 1rem;
 }
@@ -32,7 +32,7 @@
 
 .commentCardLikeButton > span::before {
   content: '\2022';
-  padding-right: 10px;
+  padding-right: 0.625rem;
 }
 
 .commentCardBox {

@@ -11,15 +11,15 @@
 }
 
 .profileCardCover {
-  height: 72px;
+  height: 4.5rem;
   width: 100%;
   object-fit: cover;
 }
 
 .profileCardHeader img + img {
   position: absolute;
-  top: 18px;
-  left: calc(152px / 2);
+  top: 1.125rem;
+  left: 4.75rem;
 }
 
 .profileCardTitle {
@@ -37,7 +37,7 @@
 
 .profileCardInfo {
   border-bottom: var(--gray-500) 1px solid;
-  padding: 68px 0px 24px 0px;
+  padding: 4.25rem 0 1.5rem 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 32px 32px 24px 32px;
+  padding: 2rem 2rem 1.5rem 2rem;
 }
 
 .profileCardButton {
@@ -59,7 +59,7 @@
   border-radius: 8px;
   color: var(--light-green);
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   height: 50px;
   justify-content: center;
   margin: 0 auto;

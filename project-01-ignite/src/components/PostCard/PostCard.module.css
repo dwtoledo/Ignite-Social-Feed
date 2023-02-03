@@ -45,7 +45,7 @@
 .postCardMessage {
   color: var(--gray-200);
   line-height: 1.6;
-  margin-top: 26px;
+  margin-top: 1.625rem;
 }
 
 .postCardMessage a {
@@ -78,9 +78,9 @@
   border: none;
   border-radius: 8px;
   color: var(--gray-200);
-  height: 96px;
+  height: 6rem;
   margin-top: 1rem;
-  padding: 13px 16px;
+  padding: 0.875rem 1rem;
   resize: none;
   width: 100%;
 }
