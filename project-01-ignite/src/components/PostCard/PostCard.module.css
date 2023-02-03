@@ -45,9 +45,9 @@
 .postCardPicture {
   border: var(--light-green) 2px solid;
   border-radius: 50%;
-  height: 100px;
+  height: 80px;
   object-fit: cover;
-  width: 100px;
+  width: 80px;
 }
 
 .postCardMessage {
@@ -93,7 +93,7 @@
   width: 100%;
 }
 
-.postCardFooter:focus-within .postCardButtonWrapper {
+.postCardForm:focus-within .postCardButtonWrapper {
   visibility: visible;
   max-height: none;
 }
@@ -118,4 +118,8 @@
 .postCardButtonWrapper > button:hover {
   background-color: var(--light-green);
   cursor: pointer;
+}
+
+.postCardComments {
+  margin-top: 2rem;
 }

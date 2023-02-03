@@ -1,3 +1,4 @@
+import { Comments } from '../Comments/Comments'
 import styles from './PostCard.module.css'
 
 export function PostCard() {
@@ -47,14 +48,21 @@ export function PostCard() {
       </div>
 
       <footer className={styles.postCardFooter} >
-        
-        <form className={styles.postCardForm} autocomplete="off">
+
+        <form className={styles.postCardForm} autoComplete="off">
           <strong>Leave your feedback</strong>
           <textarea name="feedback-form" id="feedback-form" placeholder='Write a comment...'></textarea>
           <div className={styles.postCardButtonWrapper}>
             <button type="submit">Comment</button>
-          </div>          
+          </div>
         </form>
+
+        <div className={styles.postCardComments}>
+          <Comments />
+          <Comments />
+          <Comments />
+          <Comments />
+        </div>
 
       </footer>
 

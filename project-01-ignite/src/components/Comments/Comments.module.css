@@ -1,0 +1,92 @@
+.commentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.commentWrapper + .commentWrapper {
+  margin-top: 24px;
+}
+
+.commentWrapper > img {
+  border: var(--light-green) 2px solid;
+  border-radius: 50%;
+  height: 80px;
+  object-fit: cover;
+  width: 80px;
+}
+
+.commentCard {
+  flex: 1;  
+}
+
+.commentCardLikeButton {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(----gray-300);
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 700;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.commentCardLikeButton:hover {
+  color: var(--light-green);
+  cursor: pointer;
+}
+
+.commentCardLikeButton > span::before {
+  content: '\2022';
+  padding-right: 10px;
+}
+
+.commentCardBox {
+  background-color: var(--gray-700);
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.commentCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.commentCardHeader > button {
+  line-height: 0;
+  background-color: transparent;
+  color: var(--gray-300);
+  border: none;
+}
+
+.commentCardHeader > button:hover {
+  color: var(--red-alert);
+  cursor: pointer;
+}
+
+.commentCardInfo > strong {
+  color: var(--gray-100);
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.commentCardInfo > time {
+  color: var(--gray-300);
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.commentCardMessage {
+  color: var(--gray-200);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 1rem 0 0.562rem 0;
+}
