@@ -42,14 +42,6 @@
   line-height: 1.6;
 }
 
-.postCardPicture {
-  border: var(--light-green) 2px solid;
-  border-radius: 50%;
-  height: 80px;
-  object-fit: cover;
-  width: 80px;
-}
-
 .postCardMessage {
   color: var(--gray-200);
   line-height: 1.6;

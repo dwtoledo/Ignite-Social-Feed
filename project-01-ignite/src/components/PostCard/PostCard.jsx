@@ -1,3 +1,4 @@
+import { Avatar } from '../Avatar/Avatar'
 import { Comments } from '../Comments/Comments'
 import styles from './PostCard.module.css'
 
@@ -8,10 +9,11 @@ export function PostCard() {
       <header>
         <div className={styles.postCardAuthor}>
 
-          <img
-            className={styles.postCardPicture}
+          <Avatar
             src="https://avatars.githubusercontent.com/u/11148858?v=4"
             alt="Profile Picture"
+            width={80}
+            height={80}
           />
 
           <div className={styles.postCardAuthorInfo}>

@@ -1,10 +1,17 @@
 import { TrashSimple, ThumbsUp } from 'phosphor-react'
 import styles from './Comments.module.css'
+import { Avatar } from '../Avatar/Avatar'
 
 export function Comments() {
   return (<div className={styles.commentWrapper}>
 
-    <img src="https://avatars.githubusercontent.com/u/1020826?v=4" alt="Picture of person who wrote a comment" />
+    <Avatar
+      src="https://avatars.githubusercontent.com/u/1020826?v=4"
+      alt="Picture of person who wrote a comment"
+      width={60}
+      height={60}
+      hasBorder={false}
+    />
 
     <div className={styles.commentCard}>
 
@@ -29,7 +36,7 @@ export function Comments() {
       </div>
 
       <button className={styles.commentCardLikeButton}>
-        <ThumbsUp size={20}/>
+        <ThumbsUp size={20} />
         Aplaudir
         <span>20</span>
       </button>

@@ -8,14 +8,6 @@
   margin-top: 24px;
 }
 
-.commentWrapper > img {
-  border: var(--light-green) 2px solid;
-  border-radius: 50%;
-  height: 80px;
-  object-fit: cover;
-  width: 80px;
-}
-
 .commentCard {
   flex: 1;  
 }

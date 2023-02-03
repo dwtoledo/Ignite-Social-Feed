@@ -1,0 +1,10 @@
+.avatarWithBorder {
+  border: var(--light-green) 2px solid;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
