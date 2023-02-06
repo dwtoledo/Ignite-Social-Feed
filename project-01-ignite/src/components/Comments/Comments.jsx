@@ -1,6 +1,7 @@
-import { TrashSimple, ThumbsUp } from 'phosphor-react'
-import styles from './Comments.module.css'
 import { Avatar } from '../Avatar/Avatar'
+import { TrashSimple, ThumbsUp } from 'phosphor-react'
+
+import styles from './Comments.module.css'
 
 export function Comments() {
   return (<div className={styles.commentWrapper}>
