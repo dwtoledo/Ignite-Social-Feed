@@ -2,7 +2,7 @@
   background-color: var(--gray-600);
   border-radius: 8px;
   overflow: hidden;
-  width: 256px;
+  width: 100%;
 }
 
 .profileCardHeader {

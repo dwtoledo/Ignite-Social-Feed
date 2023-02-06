@@ -3,7 +3,11 @@
   border-radius: 8px;
   overflow: hidden;
   padding: 2.5rem;
-  width: 832px;
+  width: 100%;
+}
+
+.postCard + .postCard {
+  margin-top: 2rem;
 }
 
 .postCard > header {

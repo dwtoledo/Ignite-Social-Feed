@@ -24,11 +24,21 @@ body, input, textarea, button {
   font-size: 1rem;
 }
 
-.appContent {
+.appContentWrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
   padding: 2rem;
+}
+
+.appContent {
   align-items: flex-start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 256px 832px;
+}
+
+@media (max-width: 1184px) {
+  .appContent {
+    grid-template-columns: 1fr;
+  }
 }

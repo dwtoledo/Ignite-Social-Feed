@@ -9,10 +9,17 @@ export function App() {
   return (
     <div>
       <Header />
-      <div className="appContent">
-        <ProfileCard />
-        <PostCard />
+      <div className="appContentWrapper">
+        <div className="appContent">
+          <ProfileCard />
+          <div className="postCards">
+            <PostCard />
+            <PostCard />
+            <PostCard />
+          </div>
+        </div>
       </div>
+
     </div>
   )
 }
