@@ -50,6 +50,7 @@
   color: var(--gray-200);
   line-height: 1.6;
   margin-top: 1.625rem;
+  white-space: pre-wrap;
 }
 
 .postCardMessage a {
@@ -61,6 +62,14 @@
 .postCardMessage a:hover {
   background-color: var(--light-green);
   color: var(--white);
+}
+
+.postCardMessage em {
+  font-style: italic;
+}
+
+.postCardMessage strong {
+  font-weight: 700;
 }
 
 .postCardForm {
