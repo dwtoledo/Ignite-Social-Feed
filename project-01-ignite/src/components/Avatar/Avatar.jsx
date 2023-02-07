@@ -1,6 +1,10 @@
 import styles from './Avatar.module.css'
 
-export function Avatar({ hasBorder = true, src = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png', alt = '', width = 100, height = 100 }) {
+
+
+import DEFAULT_PROFILE_IMAGE from '../../assets/images/default-profile.jpg'
+
+export function Avatar({ hasBorder = true, src = DEFAULT_PROFILE_IMAGE, alt = '', width = 100, height = 100 }) {
   return (
     <img
       className={hasBorder ? styles.avatarWithBorder : styles.avatar}
