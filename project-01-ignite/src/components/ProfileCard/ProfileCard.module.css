@@ -19,7 +19,7 @@
 .profileCardHeader img + img {
   position: absolute;
   top: 1.125rem;
-  left: 4.75rem;
+  left: calc(50% - 3.125rem);
 }
 
 .profileCardTitle {
