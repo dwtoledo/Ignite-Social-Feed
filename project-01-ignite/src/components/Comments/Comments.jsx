@@ -3,7 +3,7 @@ import { TrashSimple, ThumbsUp } from 'phosphor-react'
 
 import styles from './Comments.module.css'
 
-export function Comments() {
+export function Comments({ content }) {
   return (<div className={styles.commentWrapper}>
 
     <Avatar
@@ -32,7 +32,9 @@ export function Comments() {
           </button>
         </header>
 
-        <p className={styles.commentCardMessage}>Very good Douglas, congratz!! 👏👏</p>
+        <p className={styles.commentCardMessage}>
+          {content}
+        </p>
 
       </div>
 

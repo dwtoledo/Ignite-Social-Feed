@@ -1,5 +1,6 @@
 import { Avatar } from '../Avatar/Avatar'
 import { Comments } from '../Comments/Comments'
+import { useState } from 'react';
 
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown'
@@ -18,6 +19,18 @@ export function PostCard({
 
   const publishedAtFormatted = moment(publishedAt);
   const messageFormatted = message.length ? message : DEFAULT_MSG_EMPTY_POST;
+  const [allComments, setAllComments] = useState(['Fixed comment']);
+  const [newComment, setNewComment] = useState('');
+
+  function submitComment() {
+    event.preventDefault();
+    setAllComments([...allComments, newComment]);
+    setNewComment('');
+  }
+
+  function handleNewComment() {
+    setNewComment(event.target.value);
+  }
 
   return (
     <article className={styles.postCard}>
@@ -54,17 +67,32 @@ export function PostCard({
 
       <footer className={styles.postCardFooter} >
 
-        <form className={styles.postCardForm} autoComplete="off">
+        <form
+          className={styles.postCardForm}
+          autoComplete="off"
+          onSubmit={submitComment}
+        >
           <strong>Leave your feedback</strong>
-          <textarea name="feedback-form" id="feedback-form" placeholder='Write a comment...'></textarea>
+
+          <textarea
+            id="feedback-form"
+            onChange={handleNewComment}
+            name="feedback-form"
+            placeholder='Write a comment...'
+            value={newComment}
+          />
+
           <div className={styles.postCardButtonWrapper}>
             <button type="submit">Comment</button>
           </div>
         </form>
 
         <div className={styles.postCardComments}>
-          <Comments />
-          <Comments />
+          {
+            allComments.map((comment) => {
+              return <Comments content={comment} />
+            })
+          }
         </div>
 
       </footer>
