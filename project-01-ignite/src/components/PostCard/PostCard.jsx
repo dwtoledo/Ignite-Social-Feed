@@ -32,6 +32,14 @@ export function PostCard({
     setNewComment(event.target.value);
   }
 
+  function removeComment(commentToBeRemoved) {
+    const allCommentsWithoutRemovedComment = allComments.filter((comment) => {
+      return comment !== commentToBeRemoved;
+    });
+    setAllComments(allCommentsWithoutRemovedComment);
+    //TODO - implement comment removal by id
+  }
+
   return (
     <article className={styles.postCard}>
 
@@ -90,7 +98,7 @@ export function PostCard({
         <div className={styles.postCardComments}>
           {
             allComments.map((comment) => {
-              return <Comments key={comment} content={comment} />
+              return <Comments key={comment} content={comment} onRemove={removeComment}/>
               //TODO - change key type to id
             })
           }

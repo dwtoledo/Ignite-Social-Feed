@@ -3,7 +3,13 @@ import { TrashSimple, ThumbsUp } from 'phosphor-react'
 
 import styles from './Comments.module.css'
 
-export function Comments({ content }) {
+export function Comments({ content, onRemove }) {
+
+  function handleRemoveComponent() {
+    onRemove(content);
+    //TODO - implement comment removal by id
+  }
+
   return (<div className={styles.commentWrapper}>
 
     <Avatar
@@ -27,7 +33,7 @@ export function Comments({ content }) {
               Cerca de 2h
             </time>
           </div>
-          <button title='Remove this comment.'>
+          <button title='Remove this comment.' onClick={handleRemoveComponent}>
             <TrashSimple size={20} weight='bold' />
           </button>
         </header>
