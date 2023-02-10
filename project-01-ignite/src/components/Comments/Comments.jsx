@@ -14,7 +14,7 @@ export function Comments({ content, onRemove }) {
   }
 
   function handleClapComment() {
-    setClapCount(clapCount + 1);
+    setClapCount((state) => state + 1);
   }
 
   return (<div className={styles.commentWrapper}>
