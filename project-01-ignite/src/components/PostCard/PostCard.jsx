@@ -90,7 +90,8 @@ export function PostCard({
         <div className={styles.postCardComments}>
           {
             allComments.map((comment) => {
-              return <Comments content={comment} />
+              return <Comments key={comment} content={comment} />
+              //TODO - change key type to id
             })
           }
         </div>
