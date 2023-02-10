@@ -6,11 +6,11 @@
   width: 100%;
 }
 
-.postCard + .postCard {
+.postCard+.postCard {
   margin-top: 2rem;
 }
 
-.postCard > header {
+.postCard>header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,20 +26,20 @@
   flex-wrap: wrap;
 }
 
-.postCard > header > time {
+.postCard>header>time {
   font-size: 0.875rem;
   color: var(--gray-300);
   line-height: 1.6;
 }
 
-.postCardAuthorInfo > strong {
+.postCardAuthorInfo>strong {
   display: block;
   color: var(--gray-100);
   font-weight: 700;
   line-height: 1.6;
 }
 
-.postCardAuthorInfo > span {
+.postCardAuthorInfo>span {
   display: block;
   font-size: 0.875rem;
   color: var(--gray-300);
@@ -79,14 +79,14 @@
   width: 100%;
 }
 
-.postCardForm > strong {
+.postCardForm>strong {
   color: var(--gray-100);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.6;
 }
 
-.postCardForm > textarea {
+.postCardForm>textarea {
   background-color: var(--gray-700);
   border: none;
   border-radius: 8px;
@@ -108,7 +108,7 @@
   max-height: 0;
 }
 
-.postCardButtonWrapper > button {
+.postCardButtonWrapper>button {
   margin-top: 1rem;
   padding: 1rem 1.5rem;
   line-height: 1.2;
@@ -120,9 +120,13 @@
   transition: background-color 100ms;
 }
 
-.postCardButtonWrapper > button:hover {
+.postCardButtonWrapper>button:not(:disabled):hover {
   background-color: var(--light-green);
   cursor: pointer;
+}
+
+.postCardButtonWrapper>button:disabled {
+  cursor: not-allowed;
 }
 
 .postCardComments {

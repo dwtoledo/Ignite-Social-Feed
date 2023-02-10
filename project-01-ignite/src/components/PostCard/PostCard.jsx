@@ -88,17 +88,22 @@ export function PostCard({
             name="feedback-form"
             placeholder='Write a comment...'
             value={newComment}
+            required
           />
 
           <div className={styles.postCardButtonWrapper}>
-            <button type="submit">Comment</button>
+            <button
+              type="submit"
+              disabled={!newComment.length}>
+              Comment
+            </button>
           </div>
         </form>
 
         <div className={styles.postCardComments}>
           {
             allComments.map((comment) => {
-              return <Comments key={comment} content={comment} onRemove={removeComment}/>
+              return <Comments key={comment} content={comment} onRemove={removeComment} />
               //TODO - change key type to id
             })
           }
