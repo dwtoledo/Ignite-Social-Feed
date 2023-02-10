@@ -2,12 +2,19 @@ import { Avatar } from '../Avatar/Avatar'
 import { TrashSimple, ThumbsUp } from 'phosphor-react'
 
 import styles from './Comments.module.css'
+import { useState } from 'react';
 
 export function Comments({ content, onRemove }) {
 
-  function handleRemoveComponent() {
+  const [clapCount, setClapCount] = useState(0);
+
+  function handleRemoveComment() {
     onRemove(content);
     //TODO - implement comment removal by id
+  }
+
+  function handleClapComment() {
+    setClapCount(clapCount + 1);
   }
 
   return (<div className={styles.commentWrapper}>
@@ -33,7 +40,7 @@ export function Comments({ content, onRemove }) {
               Cerca de 2h
             </time>
           </div>
-          <button title='Remove this comment.' onClick={handleRemoveComponent}>
+          <button title='Remove this comment.' onClick={handleRemoveComment}>
             <TrashSimple size={20} weight='bold' />
           </button>
         </header>
@@ -44,10 +51,12 @@ export function Comments({ content, onRemove }) {
 
       </div>
 
-      <button className={styles.commentCardLikeButton}>
+      <button
+        className={styles.commentCardLikeButton}
+        onClick={handleClapComment}>
         <ThumbsUp size={20} />
-        Aplaudir
-        <span>20</span>
+        Clap
+        <span>{clapCount}</span>
       </button>
     </div>
 
