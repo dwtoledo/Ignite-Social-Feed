@@ -15,29 +15,42 @@ export function PostCard({
   authorName = 'User unknown',
   authorRole = 'Role not informed',
   publishedAt = new Date().toISOString(),
-  message = DEFAULT_MSG_EMPTY_POST }) {
+  message = DEFAULT_MSG_EMPTY_POST,
+  comments = [] }) {
 
   const publishedAtFormatted = moment(publishedAt);
   const messageFormatted = message.length ? message : DEFAULT_MSG_EMPTY_POST;
-  const [allComments, setAllComments] = useState(['Fixed comment']);
+  const [allComments, setAllComments] = useState(comments);
   const [newComment, setNewComment] = useState('');
 
   function submitComment() {
     event.preventDefault();
-    setAllComments([...allComments, newComment]);
+    setAllComments([...allComments, createNewComment()]);
     setNewComment('');
+  }
+
+  function createNewComment() {
+    const now = new Date();
+
+    return {
+      author: {
+        name: 'User not logged in',
+        isPostCreator: false
+      },
+      commentedAt: now.toISOString(),
+      content: newComment
+    }
   }
 
   function handleNewComment() {
     setNewComment(event.target.value);
   }
 
-  function removeComment(commentToBeRemoved) {
-    const allCommentsWithoutRemovedComment = allComments.filter((comment) => {
-      return comment !== commentToBeRemoved;
+  function removeComment(commentIdToRemove) {
+    const allCommentsWithoutRemovedOne = allComments.filter((comment) => {
+      return comment.id !== commentIdToRemove;
     });
-    setAllComments(allCommentsWithoutRemovedComment);
-    //TODO - implement comment removal by id
+    setAllComments(allCommentsWithoutRemovedOne);
   }
 
   return (
@@ -101,10 +114,19 @@ export function PostCard({
         </form>
 
         <div className={styles.postCardComments}>
-          {
+          { !allComments.length ? <p>Be the first to comment this!</p> : 
             allComments.map((comment) => {
-              return <Comments key={comment} content={comment} onRemove={removeComment} />
-              //TODO - change key type to id
+              return (
+                <Comments
+                  onRemove={removeComment}
+                  key={comment.id}
+                  id={comment.id}
+                  content={comment.content}
+                  commentedAt={comment.commentedAt}
+                  avatarUrl={comment.author.avatarUrl}
+                  authorName={comment.author.name}
+                  isPostCreator={comment.author.isPostCreator} />
+              );
             })
           }
         </div>

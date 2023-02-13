@@ -1,16 +1,26 @@
 import { Avatar } from '../Avatar/Avatar'
 import { TrashSimple, ThumbsUp } from 'phosphor-react'
-
-import styles from './Comments.module.css'
 import { useState } from 'react';
 
-export function Comments({ content, onRemove }) {
+import moment from 'moment';
+import styles from './Comments.module.css'
 
+const now = new Date();
+
+export function Comments({
+  onRemove,
+  id,
+  content = '',
+  commentedAt = now.toISOString(),
+  avatarUrl,
+  authorName = 'User unknow',
+  isPostCreator = false }) {
+
+  const commentedAtFormatted = moment(commentedAt);
   const [clapCount, setClapCount] = useState(0);
 
   function handleRemoveComment() {
-    onRemove(content);
-    //TODO - implement comment removal by id
+    onRemove(id);
   }
 
   function handleClapComment() {
@@ -20,7 +30,7 @@ export function Comments({ content, onRemove }) {
   return (<div className={styles.commentWrapper}>
 
     <Avatar
-      src="https://avatars.githubusercontent.com/u/1020826?v=4"
+      src={avatarUrl}
       alt="Picture of person who wrote a comment"
       width={60}
       height={60}
@@ -33,12 +43,17 @@ export function Comments({ content, onRemove }) {
 
         <header className={styles.commentCardHeader}>
           <div className={styles.commentCardInfo}>
-            <strong>Adiel Seffrin</strong>
+            <strong>
+              {authorName}
+              {isPostCreator ? ' (you)' : ''}
+            </strong>
+
             <time
-              title='Commented on 03/02/2023 at 08:42hrs'
-              dateTime='2023-02-03 08:42:45'>
-              Cerca de 2h
+              title={commentedAtFormatted.format("[Commented on] L LT")}
+              dateTime={commentedAtFormatted.toISOString()}>
+              Commented {commentedAtFormatted.from(moment())}:
             </time>
+
           </div>
           <button title='Remove this comment.' onClick={handleRemoveComment}>
             <TrashSimple size={20} weight='bold' />
