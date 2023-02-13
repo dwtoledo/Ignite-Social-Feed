@@ -64,11 +64,7 @@ export function App() {
               POST_CARDS_MOCKED.map((post) => {
                 return <PostCard
                   key={post.id}
-                  avatarUrl={post.author.avatarUrl}
-                  authorName={post.author.name}
-                  authorRole={post.author.role}
-                  publishedAt={post.publishedAt}
-                  message={post.content}
+                  data={post}
                   comments={post.comments}
                 />
               })

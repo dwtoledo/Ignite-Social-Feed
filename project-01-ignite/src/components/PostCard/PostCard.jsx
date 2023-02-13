@@ -10,18 +10,16 @@ import styles from './PostCard.module.css'
 
 const DEFAULT_MSG_EMPTY_POST = '*This post has no message.*'
 
-export function PostCard({
-  avatarUrl,
-  authorName = 'User unknown',
-  authorRole = 'Role not informed',
-  publishedAt = new Date().toISOString(),
-  message = DEFAULT_MSG_EMPTY_POST,
-  comments = [] }) {
+export function PostCard({ data }) {
 
-  const publishedAtFormatted = moment(publishedAt);
-  const messageFormatted = message.length ? message : DEFAULT_MSG_EMPTY_POST;
-  const [allComments, setAllComments] = useState(comments);
+  const publishedAtFormatted = isValidDate(data.publishedAt) ? moment(data.publishedAt) : moment();
+  const [allComments, setAllComments] = useState(data.comments.length ? data.comments : []);
   const [newComment, setNewComment] = useState('');
+
+  function isValidDate(dateString) {
+    let date = new Date(dateString);
+    return !isNaN(date.getTime());
+  }
 
   function submitComment() {
     event.preventDefault();
@@ -40,17 +38,21 @@ export function PostCard({
       commentedAt: now.toISOString(),
       content: newComment
     }
+
+    //TODO - implement new comment api call
   }
 
   function handleNewComment() {
     setNewComment(event.target.value);
   }
 
-  function removeComment(commentIdToRemove) {
+  function removeComment(idToRemove) {
     const allCommentsWithoutRemovedOne = allComments.filter((comment) => {
-      return comment.id !== commentIdToRemove;
+      return comment.id !== idToRemove;
     });
     setAllComments(allCommentsWithoutRemovedOne);
+    
+    //TODO - implement remove comment api call
   }
 
   return (
@@ -60,15 +62,19 @@ export function PostCard({
         <div className={styles.postCardAuthor}>
 
           <Avatar
-            src={avatarUrl}
+            src={data.author.avatarUrl}
             alt="Profile Picture"
             width={80}
             height={80}
           />
 
           <div className={styles.postCardAuthorInfo}>
-            <strong>{authorName}</strong>
-            <span>{authorRole}</span>
+            <strong>
+              {data.author.name ? data.author.name : 'User unknown'}
+            </strong>
+            <span>
+              {data.author.role ? data.author.role : 'Role not informed'}
+            </span>
           </div>
         </div>
 
@@ -82,7 +88,7 @@ export function PostCard({
 
       <ReactMarkdown
         className={styles.postCardMessage}
-        children={messageFormatted}
+        children={data.content.length ? data.content : DEFAULT_MSG_EMPTY_POST}
         remarkPlugins={[remarkGfm]}
       />
 
@@ -114,17 +120,13 @@ export function PostCard({
         </form>
 
         <div className={styles.postCardComments}>
-          { !allComments.length ? <p>Be the first to comment this!</p> : 
+          {!allComments.length ? <p>Be the first to comment this!</p> :
             allComments.map((comment) => {
               return (
                 <Comments
-                  onRemove={removeComment}
                   key={comment.id}
-                  id={comment.id}
-                  content={comment.content}
-                  commentedAt={comment.commentedAt}
-                  avatarUrl={comment.author.avatarUrl}
-                  authorName={comment.author.name}
+                  data={comment}
+                  onRemove={removeComment}
                   isPostCreator={comment.author.isPostCreator} />
               );
             })

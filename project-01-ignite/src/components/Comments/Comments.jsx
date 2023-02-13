@@ -6,21 +6,20 @@ import moment from 'moment';
 import styles from './Comments.module.css'
 
 const now = new Date();
+const DEFAULT_MSG_EMPTY_COMMENT = 'This comment has no message.'
 
-export function Comments({
-  onRemove,
-  id,
-  content = '',
-  commentedAt = now.toISOString(),
-  avatarUrl,
-  authorName = 'User unknow',
-  isPostCreator = false }) {
+export function Comments({ data, onRemove }) {
 
-  const commentedAtFormatted = moment(commentedAt);
+  const commentedAtFormatted = isValidDate(data.commentedAt) ? moment(data.commentedAt) : moment();
   const [clapCount, setClapCount] = useState(0);
 
+  function isValidDate(dateString) {
+    let date = new Date(dateString);
+    return !isNaN(date.getTime());
+  }
+
   function handleRemoveComment() {
-    onRemove(id);
+    onRemove(data.id);
   }
 
   function handleClapComment() {
@@ -30,8 +29,8 @@ export function Comments({
   return (<div className={styles.commentWrapper}>
 
     <Avatar
-      src={avatarUrl}
-      alt="Picture of person who wrote a comment"
+      src={data.author.avatarUrl}
+      alt="Avatar of person who wrote a comment"
       width={60}
       height={60}
       hasBorder={false}
@@ -42,10 +41,12 @@ export function Comments({
       <div className={styles.commentCardBox}>
 
         <header className={styles.commentCardHeader}>
+
           <div className={styles.commentCardInfo}>
+
             <strong>
-              {authorName}
-              {isPostCreator ? ' (you)' : ''}
+              {data.author.name?.length ? data.author.name : 'User unknow'}
+              {data.author.isPostCreator ? ' (you)' : ''}
             </strong>
 
             <time
@@ -55,13 +56,15 @@ export function Comments({
             </time>
 
           </div>
+
           <button title='Remove this comment.' onClick={handleRemoveComment}>
             <TrashSimple size={20} weight='bold' />
           </button>
+          
         </header>
 
         <p className={styles.commentCardMessage}>
-          {content}
+          {data.content.length ? data.content : DEFAULT_MSG_EMPTY_COMMENT}
         </p>
 
       </div>
