@@ -52,6 +52,7 @@ export function App() {
       comments: []
     }
   ];
+  //TODO - remove mocked data after implement api
 
   return (
     <div>
