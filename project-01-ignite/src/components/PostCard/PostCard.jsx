@@ -120,7 +120,7 @@ export function PostCard({ dataSource }) {
         </form>
 
         <div className={styles.postCardComments}>
-          {!allComments.length ? <p>Be the first to comment this!</p> :
+          {!allComments.length ? <p>🔝 Be the first to comment on this!</p> :
             allComments.map((comment) => {
               return (
                 <Comments
