@@ -8,9 +8,9 @@ import styles from './Comments.module.css'
 const now = new Date();
 const DEFAULT_MSG_EMPTY_COMMENT = 'This comment has no message.'
 
-export function Comments({ data, onRemove }) {
+export function Comments({ dataSource, onRemove }) {
 
-  const commentedAtFormatted = isValidDate(data.commentedAt) ? moment(data.commentedAt) : moment();
+  const commentedAtFormatted = isValidDate(dataSource.commentedAt) ? moment(dataSource.commentedAt) : moment();
   const [clapCount, setClapCount] = useState(0);
 
   function isValidDate(dateString) {
@@ -19,7 +19,7 @@ export function Comments({ data, onRemove }) {
   }
 
   function handleRemoveComment() {
-    onRemove(data.id);
+    onRemove(dataSource.id);
   }
 
   function handleClapComment() {
@@ -29,7 +29,7 @@ export function Comments({ data, onRemove }) {
   return (<div className={styles.commentWrapper}>
 
     <Avatar
-      src={data.author.avatarUrl}
+      src={dataSource.author.avatarUrl}
       alt="Avatar of person who wrote a comment"
       width={60}
       height={60}
@@ -45,8 +45,8 @@ export function Comments({ data, onRemove }) {
           <div className={styles.commentCardInfo}>
 
             <strong>
-              {data.author.name?.length ? data.author.name : 'User unknow'}
-              {data.author.isPostCreator ? ' (you)' : ''}
+              {dataSource.author.name?.length ? dataSource.author.name : 'User unknow'}
+              {dataSource.author.isPostCreator ? ' (you)' : ''}
             </strong>
 
             <time
@@ -64,7 +64,7 @@ export function Comments({ data, onRemove }) {
         </header>
 
         <p className={styles.commentCardMessage}>
-          {data.content.length ? data.content : DEFAULT_MSG_EMPTY_COMMENT}
+          {dataSource.content.length ? dataSource.content : DEFAULT_MSG_EMPTY_COMMENT}
         </p>
 
       </div>

@@ -34,7 +34,7 @@ export function App() {
           author: {
             avatarUrl: 'https://avatars.githubusercontent.com/u/11148858?v=4',
             name: 'Douglas Toledo',
-            isPostCreator: true
+            isPostCreator: false
           },
           content: 'Thanks Adiel!'
         }
@@ -64,7 +64,7 @@ export function App() {
               POST_CARDS_MOCKED.map((post) => {
                 return <PostCard
                   key={post.id}
-                  data={post}
+                  dataSource={post}
                   comments={post.comments}
                 />
               })

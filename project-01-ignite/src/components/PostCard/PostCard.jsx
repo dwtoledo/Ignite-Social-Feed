@@ -10,10 +10,10 @@ import styles from './PostCard.module.css'
 
 const DEFAULT_MSG_EMPTY_POST = '*This post has no message.*'
 
-export function PostCard({ data }) {
+export function PostCard({ dataSource }) {
 
-  const publishedAtFormatted = isValidDate(data.publishedAt) ? moment(data.publishedAt) : moment();
-  const [allComments, setAllComments] = useState(data.comments.length ? data.comments : []);
+  const publishedAtFormatted = isValidDate(dataSource.publishedAt) ? moment(dataSource.publishedAt) : moment();
+  const [allComments, setAllComments] = useState(dataSource.comments.length ? dataSource.comments : []);
   const [newComment, setNewComment] = useState('');
 
   function isValidDate(dateString) {
@@ -62,7 +62,7 @@ export function PostCard({ data }) {
         <div className={styles.postCardAuthor}>
 
           <Avatar
-            src={data.author.avatarUrl}
+            src={dataSource.author.avatarUrl}
             alt="Profile Picture"
             width={80}
             height={80}
@@ -70,10 +70,10 @@ export function PostCard({ data }) {
 
           <div className={styles.postCardAuthorInfo}>
             <strong>
-              {data.author.name ? data.author.name : 'User unknown'}
+              {dataSource.author.name ? dataSource.author.name : 'User unknown'}
             </strong>
             <span>
-              {data.author.role ? data.author.role : 'Role not informed'}
+              {dataSource.author.role ? dataSource.author.role : 'Role not informed'}
             </span>
           </div>
         </div>
@@ -88,7 +88,7 @@ export function PostCard({ data }) {
 
       <ReactMarkdown
         className={styles.postCardMessage}
-        children={data.content.length ? data.content : DEFAULT_MSG_EMPTY_POST}
+        children={dataSource.content.length ? dataSource.content : DEFAULT_MSG_EMPTY_POST}
         remarkPlugins={[remarkGfm]}
       />
 
@@ -125,7 +125,7 @@ export function PostCard({ data }) {
               return (
                 <Comments
                   key={comment.id}
-                  data={comment}
+                  dataSource={comment}
                   onRemove={removeComment}
                   isPostCreator={comment.author.isPostCreator} />
               );
